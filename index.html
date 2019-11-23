@@ -23,55 +23,32 @@
 </head>
 
 <body>
+  <div class="navbar">
+    <nav class="navbar">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+    <form class="form-inline my-2 my-lg-0">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        Login
+      </button>
+    </form>
+  </div>
   <div class="jumbotron">
     <h1>SquadTalk -</h1>
     <h2>Safe communication with squads</h2>
   </div>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-9">
-        <h2>Send a Message</h2>
-        <div class="form-group">
-          <label for="messageInput">What is your message?</label>
-          <textarea class="form-control" id="messageInput" rows="5"></textarea>
-        </div>
-        <div class="form-group">
-          <label for="idInput">What is the recipient id?</label>
-          <input
-            type="text"
-            class="form-control"
-            id="idInput"
-            placeholder="Enter id here"
-          />
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-    </div>
-    <div class="row" style="padding-top: 5%">
-      <div class="col-md-9">
-        <h2>Make a SquadTalk Messenger Account</h2>
-        <div class="form-group">
-          <label for="emailInput">What is your email?</label>
-          <input
-            type="email"
-            class="form-control"
-            id="emailInput"
-            placeholder="Enter email here"
-          />
-        </div>
-        <div class="form-group">
-          <label for="uniqueIdInput">What is your unique ID?</label>
-          <input
-            type="text"
-            class="form-control"
-            id="uniqueIdInput"
-            placeholder="Enter id here"
-          />
-        </div>
-        <button type="submit" class="btn btn-primary">Create Account</button>
-      </div>
-    </div>
-  </div>
+  <div class="container-fluid"></div>
 
   <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
 
