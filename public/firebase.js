@@ -15,7 +15,7 @@ let token = null;
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-const loginWithGoogle = () => {
+loginWithGoogle = () => {
   console.log("test");
   const provider = new firebase.auth.GoogleAuthProvider();
 
