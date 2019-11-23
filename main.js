@@ -1,0 +1,3 @@
+$("#submitAccount").click({
+    var email = ("#")
+})
