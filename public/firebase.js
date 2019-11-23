@@ -56,5 +56,3 @@ const loginWithGoogle = () => {
 };
 
 const getToken = () => token;
-
-$("#login-button").click(() => loginWithGoogle());
