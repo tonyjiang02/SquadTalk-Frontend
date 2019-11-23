@@ -12,3 +12,13 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
+
+const provider = new firebase.auth.GoogleAuthProvider();
+
+provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+
+firebase.auth().useDeviceLanguage();
+
+provider.setCustomParameters({
+  'login_hint': 'user@example.com'
+});
