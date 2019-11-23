@@ -1,0 +1,51 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="jumbotron">
+        <h1>SquadTalk - </h1>
+        <h2>A program to ensure safe communications between members of society</h2>
+    </div>
+    <div class = "container-fluid">
+        <div class="row">
+            <div class="col-md-9">
+                <h2>Send a Message</h2>
+                <div class = "form-group">
+                    <label for = "messageInput">What is your message?</label>
+                    <textarea class="form-control" id="messageInput" rows="5"></textarea>
+                </div>
+                <div class = "form-group">
+                    <label for = "idInput">What is the recipient id?</label>
+                    <input type = "text" class = "form-control" id = "idInput" placeholder = "Enter id here">
+                </div>
+                <button type = "submit" class = "btn btn-primary">Submit</button>
+            </div>
+        </div>
+        <div class = "row" style = "padding-top: 5%">
+            <div class = "col-md-9">
+                <h2>Make a SquadTalk Messenger Account</h2>
+                <div class = "form-group">
+                    <label for = "emailInput">What is your email?</label>
+                    <input type = "email" class = "form-control" id = "emailInput" placeholder = "Enter email here">
+                </div>
+                <div class = "form-group">
+                    <label for = "uniqueIdInput">What is your unique ID?</label>
+                    <input type = "text" class = "form-control" id = "uniqueIdInput" placeholder = "Enter id here">
+                </div>
+                <button type = "submit" class = "btn btn-primary">Create Account</button>
+            </div>
+        </div>
+    </div>
+    <script src = "main.js"> </script>
+</body>
