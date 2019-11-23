@@ -12,11 +12,13 @@ getEmails(token).then((friendsList) => {
 })
 
 $("#submitEmail").click(() => {
+    preventDefault();
     var email = $("emailInput").val()
     addEmail(email, token)
 })
 
 $("#submitMessage").click(()=> {
+    preventDefault();
     var text = $("#messageInput").val()
     var id = $("#idInput").val()
     sendMessage(text, id, token)
