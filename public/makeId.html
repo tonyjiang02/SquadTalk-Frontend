@@ -21,7 +21,6 @@
     crossorigin="anonymous"
   ></script>
 </head>
-
 <body>
   <div class="navbar">
     <nav class="navbar">
@@ -38,38 +37,26 @@
         <span class="navbar-toggler-icon"></span>
       </button>
     </nav>
-    <form class="form-inline my-2 my-lg-0">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-        Login
-      </button>
-    </form>
   </div>
-  <div class="jumbotron">
-    <h1>SquadTalk -</h1>
-    <h2>Safe communication with squads</h2>
+  <div class="container">
+    <h2>What is your ID?</h2>
+    <div class="form-group">
+      <label for="idInput">This id will be used to identify you</label>
+      <input
+        type="text"
+        class="form-control"
+        id="idInput"
+        placeholder="Enter your unique ID here"
+      />
+    </div>
+    <button id="submitId" type="submit" class="btn btn-primary">
+      Submit
+    </button>
   </div>
-  <div class="container-fluid"></div>
-
-  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
-
-  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
-
-  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
-
-  <!-- Add Firebase products that you want to use -->
-  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
-
-  <script src="main.js"></script>
-  <!-- Previously loaded Firebase SDKs -->
-
-  <script>
-    // TODO: Replace the following with your app's Firebase project configuration
-    var firebaseConfig = {};
-
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-  </script>
+  <!-- <script>
+          if (!getToken()) {
+            window.location.replace("/index.html");
+          }
+        </script> -->
+  <script src="register.js"></script>
 </body>

@@ -22,14 +22,22 @@
   ></script>
 </head>
 <body>
+  <div class="navbar">
+    <nav class="navbar">
+      <a class="navbar-brand" href="#">SquadTalk</a>
+      <form class="form-inline my-2 my-lg-0">
+          <a id = "userId"></a>
+      </form>
+    </nav>
+  </div>
   <div class="container">
-    <h2>You are logged in!</h2>
     <div class="row">
       <div class="col-md-6">
+        <h2>Add new friends</h2>
         <div class="form-group">
           <label for="emailInput">Add friend for verification</label>
           <input
-            type="text"
+            type="email"
             class="form-control"
             id="emailInput"
             placeholder="Enter friend's email here"
@@ -44,22 +52,25 @@
         <ul id="friendsList"></ul>
       </div>
     </div>
-    <div class = "row">
+    <div style="padding-top:5%" id="sendMessage">
       <h2>Send a message to someone</h2>
       <div class="form-group">
-          <label for="messageInput">What is your message?</label>
-          <textarea class="form-control" id="messageInput" rows="5"></textarea>
-        </div>
-        <div class="form-group">
-          <label for="idInput">What is the recipient id?</label>
-          <input
-            type="text"
-            class="form-control"
-            id="idInput"
-            placeholder="Enter id here"
-          />
-        </div>
-        <button id = "submitMessage" type="submit" class="btn btn-primary">Submit</button>
+        <label for="messageInput">What is your message?</label>
+        <textarea class="form-control" id="messageInput" rows="5"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="idInput">What is the recipient id?</label>
+        <input
+          type="text"
+          class="form-control"
+          id="idInput"
+          placeholder="Enter id here"
+        />
+      </div>
+
+      <button id="submitMessage" type="submit" class="btn btn-primary">
+        Submit
+      </button>
     </div>
   </div>
   <!-- <script>
@@ -67,5 +78,5 @@
       window.location.replace("/index.html");
     }
   </script> -->
-  <script src = "register.js"></script>
+  <script src="register.js"></script>
 </body>
