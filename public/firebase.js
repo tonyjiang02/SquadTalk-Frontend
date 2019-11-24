@@ -84,7 +84,14 @@ addEmail = (friendEmail, email) => {
 };
 
 sendMessage = (text, id, email) => {
-
+  var data = new FormData();
+  data.append('msg', text)
+  data.append('to_id', id)
+  data.append('from_email', email)
+  fetch("http://192.168.137.28:8080/message_send", {
+    method: 'post',
+    body: data
+  })
 };
 
 getEmails = email => {
