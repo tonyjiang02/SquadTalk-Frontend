@@ -1,77 +1,94 @@
 <head>
-    <link
-            rel="stylesheet"
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-            crossorigin="anonymous"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-    <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"
-    ></script>
-    <script
-            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"
-    ></script>
-    <link
-            href="https://fonts.googleapis.com/css?family=Arvo|Oswald&display=swap"
-            rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css"/>
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous"
+  />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"
+  ></script>
+  <link
+    href="https://fonts.googleapis.com/css?family=Arvo|Oswald&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-<div class="navbar">
+  <div class="navbar">
     <nav class="navbar">
-        <a class="navbar-brand" href="#">
-            <img src="images/squadtalklogo.png" width="30" height="30" alt="">
-        </a>
-        <a class="navbar-brand" href="index.html">SquadTalk</a>
-        <button
-                class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-        >
-            <span class="navbar-toggler-icon"></span>
-        </button>
+      <a class="navbar-brand" href="#">
+        <img src="images/squadtalklogo.png" width="30" height="30" alt="" />
+      </a>
+      <a class="navbar-brand" href="index.html">SquadTalk</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
     </nav>
     <form class="form-inline my-2 my-lg-0">
-        <button id="login-button" class="button btn btn-outline-success">
-            Sign Up
-        </button>
+      <button id="login-button" class="button btn btn-outline-success">
+        Sign Up
+      </button>
     </form>
-</div>
-<div
-        class="jumbotron mainslide"
-        style="background-image: url(./images/safe-talk-background.jpeg);"
->
+  </div>
+  <div
+    class="jumbotron mainslide"
+    style="background-image: url(./images/safe-talk-background.jpeg);"
+  >
     <h1>SquadTalk</h1>
     <h2>Safe communication with squads</h2>
-    <button type="button" id="get-started" class="btn btn-success">Get Started</button>
-</div>
-<div class="container-fluid"></div>
+    <button type="button" id="get-started" class="btn btn-success">
+      Get Started
+    </button>
+  </div>
+  <div
+    class="jumbotron mainslide"
+    style="background-image: url(./images/second-slide.jpeg)"
+  >
+    <div class="row">
+      <div class="col-md-6"></div>
+      <div class="col-md-6">
+        <h1>About Us</h1>
+        <p>
+          Cyberbullying Prevention. AI Sentiment Analysis. Peer to Peer
+          Verifcation. One Simple App. Join our movement to change the way we
+          think about communication.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid"></div>
 
-<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
 
-<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
 
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
 
-<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
 
-<!-- Add Firebase products that you want to use -->
-<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+  <script src="firebase.js"></script>
 
-<script src="firebase.js"></script>
-
-<script src="main.js"></script>
+  <script src="main.js"></script>
 </body>
