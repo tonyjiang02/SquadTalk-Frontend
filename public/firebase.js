@@ -15,7 +15,7 @@ let token = null;
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-loginWithGoogle = () => {
+const loginWithGoogle = () => {
   console.log("test");
   const provider = new firebase.auth.GoogleAuthProvider();
 
@@ -26,6 +26,18 @@ loginWithGoogle = () => {
   });
 
   firebase.auth().signInWithRedirect(provider);
+};
+
+const logout = () => {
+  firebase
+    .auth()
+    .signOut()
+    .then(function() {
+      window.location.replace("index.html");
+    })
+    .catch(function(error) {
+      // An error happened
+    });
 };
 
 const getToken = () => token;
