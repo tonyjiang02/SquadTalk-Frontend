@@ -55,42 +55,22 @@
   </nav>
   <div class="container">
     <h2>Block These Options</h2>
-    <form>
+    <form onsubmit = "sendPreferences()">
       <div class="form-group">
-        <label for="Profanity Select">Example select</label>
+        <label for="Profanity Select">Select Toxicity</label>
         <select class="form-control" id="profanitySelect">
-          <option>Moderate Profanity</option>
-          <option>Severe Profanity</option>
+          <option>Moderate Toxicity</option>
+          <option>Severe Toxicity</option>
         </select>
       </div>
-      <div class="form-check form-check-inline">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          id="toxicity"
-          value="toxicity"
-        />
-        <label class="form-check-label" for="inlineCheckbox1">Toxicity</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          id="severeToxicity"
-          value="severeToxicity"
-        />
-        <label class="form-check-label" for="inlineCheckbox2"
-          >Severe Toxicity</label
-        >
-      </div>
       <div class="form-group">
         <input
           class="form-check-input"
           type="checkbox"
-          value=""
-          id="defaultCheck1"
+          value="identityattack"
+          id="identityattack"
         />
-        <label class="form-check-label" for="defaultCheck1">
+        <label class="form-check-label" for="identityattack">
           Identity Attack
         </label>
       </div>
@@ -98,10 +78,10 @@
         <input
           class="form-check-input"
           type="checkbox"
-          value=""
-          id="defaultCheck1"
+          value="insult"
+          id="insult"
         />
-        <label class="form-check-label" for="defaultCheck1">
+        <label class="form-check-label" for="insult">
           Insult
         </label>
       </div>
@@ -109,10 +89,10 @@
         <input
           class="form-check-input"
           type="checkbox"
-          value=""
-          id="defaultCheck1"
+          value="profanity"
+          id="profanity"
         />
-        <label class="form-check-label" for="defaultCheck1">
+        <label class="form-check-label" for="profanity">
           Profanity
         </label>
       </div>
@@ -120,10 +100,10 @@
         <input
           class="form-check-input"
           type="checkbox"
-          value=""
-          id="defaultCheck1"
+          value="threat"
+          id="threat"
         />
-        <label class="form-check-label" for="defaultCheck1">
+        <label class="form-check-label" for="threat">
           Threat
         </label>
       </div>
@@ -131,10 +111,10 @@
         <input
           class="form-check-input"
           type="checkbox"
-          value=""
-          id="defaultCheck1"
+          value="sexuallyexplicit"
+          id="sexuallyexplicit"
         />
-        <label class="form-check-label" for="defaultCheck1">
+        <label class="form-check-label" for="sexuallyexplicit">
           Sexually Explicit
         </label>
       </div>
@@ -142,14 +122,15 @@
         <input
           class="form-check-input"
           type="checkbox"
-          value=""
-          id="defaultCheck1"
+          value="flirtation"
+          id="flirtation"
         />
-        <label class="form-check-label" for="defaultCheck1">
+        <label class="form-check-label" for="flirtation">
           Flirtation
         </label>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
+  <script src = "settings.js"></script>
 </body>
