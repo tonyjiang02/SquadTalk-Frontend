@@ -2,6 +2,10 @@ $("#login-button").click(e => {
   e.preventDefault();
   loginWithGoogle();
 });
+$("#getStarted").click(e => {
+  e.preventDefault();
+  loginWithGoogle();
+});
 
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
