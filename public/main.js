@@ -76,3 +76,16 @@ firebase
     var credential = error.credential;
     // ...
   });
+
+var typed = new Typed(".type", {
+  strings: [
+    "squads.",
+    "machine learning.",
+    "decentralization.",
+    "crowdsourcing."
+  ],
+  typeSpeed: 80,
+  backSpeed: 30,
+  backDelay: 1400,
+  loop: true
+});
