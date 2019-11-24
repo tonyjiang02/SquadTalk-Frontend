@@ -34,10 +34,10 @@ logout = () => {
   firebase
     .auth()
     .signOut()
-    .then(function() {
+    .then(function () {
       window.location.replace("index.html");
     })
-    .catch(function(error) {
+    .catch(function (error) {
       // An error happened
     });
 };
@@ -46,7 +46,7 @@ getToken = () => token;
 
 createUser = email => {
   var user = db.collection("users").doc(email);
-  user.get().then(function(doc) {
+  user.get().then(function (doc) {
     if (doc.exists) {
     } else {
       user.set({
@@ -83,8 +83,8 @@ addEmail = (friendEmail, email) => {
   })
 };
 
-sendMessage = (text,id,email) => {
-  
+sendMessage = (text, id, email) => {
+
 };
 
 getEmails = email => {
@@ -95,7 +95,7 @@ removeEmail = (friendEmail, email) => {
   db.collection("users")
     .doc(email)
     .get()
-    .then(function(doc) {
+    .then(function (doc) {
       var friends = doc.data().friends;
       friends.splice(friends.indexOf(friendEmail));
       db.collection("users")
@@ -106,6 +106,6 @@ removeEmail = (friendEmail, email) => {
     });
 };
 
-setPreferences = preferences => {};
+setPreferences = preferences => { };
 
-const getPreferences = () => {};
+const getPreferences = () => { };
