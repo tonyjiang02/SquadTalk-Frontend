@@ -25,13 +25,26 @@ firebase
       // This gives you a Google Access Token. You can use it to access the Google API.
       token = result.credential.accessToken;
       console.log(result.additionalUserInfo.isNewUser);
-      createUser(result.user.email);
-      if (result.additionalUserInfo.isNewUser) {
-        window.location.replace("settings.html");
-      } else {
-        window.location.replace("profile.html");
-      }
-      console.log(result);
+      console.log("before createUser", "user=" + result.user.email);
+      createUser(result.user.email).then(function(doc) {
+        if (doc.exists) {
+          console.log("wtf why doc exist");
+        } else {
+          console.log("sjdvnsdjvn WTF OMG");
+          doc.set({
+            email: result.user.email,
+            id: "",
+            friends: []
+          });
+        }
+        console.log("past createUser");
+        if (result.additionalUserInfo.isNewUser) {
+          window.location.replace("settings.html");
+        } else {
+          window.location.replace("profile.html");
+        }
+        console.log(result);
+      });
       // ...
     }
     // The signed-in user info.
