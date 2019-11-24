@@ -27,3 +27,8 @@
 .mainslide h1{
     font-size: 80px;
 }
+
+.subtitle {
+    margin: 0.7em 0;
+    font-size: 2.5em;
+}
