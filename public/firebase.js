@@ -28,7 +28,7 @@ loginWithGoogle = () => {
   firebase.auth().signInWithRedirect(provider);
 };
 
-db = firebase.firestore()
+db = firebase.firestore();
 
 logout = () => {
   firebase
@@ -44,63 +44,77 @@ logout = () => {
 
 getToken = () => token;
 
-createUser = (email) => {
-  var user = db.collection('users').doc(email);
-  user.get().then(function (doc) {
+createUser = email => {
+  var user = db.collection("users").doc(email);
+  user.get().then(function(doc) {
     if (doc.exists) {
-
     } else {
       user.set({
         email: email,
-        id: '',
+        id: "",
         friends: []
-      })
+      });
     }
-  })
-}
-
-setId = (id, email) => {
-  db.collection('users').doc(email).update({
-    id: id
-  })
+  });
 };
 
-getId = (email) => {
-  return db.collection('users').doc(email).get();
+setId = (id, email) => {
+  db.collection("users")
+    .doc(email)
+    .update({
+      id: id
+    });
+};
+
+getId = email => {
+  return db
+    .collection("users")
+    .doc(email)
+    .get();
 };
 
 addEmail = (friendEmail, email) => {
-  db.collection('users').doc(email).get().then(function (doc) {
-    var friends = doc.data().friends;
-    console.log(friendEmail)
-    console.log(friends)
-    friends.push(friendEmail);
-    console.log(friends)
-    db.collection('users').doc(email).update({
-
-      friends: friends
-    })
-  })
+  db.collection("users")
+    .doc(email)
+    .get()
+    .then(function(doc) {
+      var friends = doc.data().friends;
+      console.log(friendEmail);
+      console.log(friends);
+      friends.push(friendEmail);
+      console.log(friends);
+      db.collection("users")
+        .doc(email)
+        .update({
+          friends: friends
+        });
+    });
 };
 
-sendMessage = (text,id,email) => {
-
-};
+sendMessage = (text, id, email) => {};
 
 getFriends = email => {
-  return db.collection('users').doc(email).get()
+  return db
+    .collection("users")
+    .doc(email)
+    .get();
 };
 
-removeEmail = (friendEmail, email) => { 
-  db.collection('users').doc(email).get().then(function (doc) {
-    var friends = doc.data().friends;
-    friends.splice(friends.indexOf(friendEmail))
-    db.collection('users').doc(email).update({
-      friends: friends
-    })
-  })
+removeEmail = (friendEmail, email) => {
+  db.collection("users")
+    .doc(email)
+    .get()
+    .then(function(doc) {
+      var friends = doc.data().friends;
+      friends.splice(friends.indexOf(friendEmail));
+      db.collection("users")
+        .doc(email)
+        .update({
+          friends: friends
+        });
+    });
 };
 
 setPreferences = preferences => {};
 
-const getPreferences = () => { };
+const getPreferences = () => {};
