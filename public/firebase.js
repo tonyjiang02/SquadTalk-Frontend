@@ -72,22 +72,18 @@ getId = (email) => {
 addEmail = (friendEmail, email) => {
   db.collection('users').doc(email).get().then(function (doc) {
     var friends = doc.data().friends;
-    console.log(friendEmail)
-    console.log(friends)
     friends.push(friendEmail);
-    console.log(friends)
     db.collection('users').doc(email).update({
-
       friends: friends
     })
   })
 };
 
 sendMessage = (text,id,email) => {
-
+  
 };
 
-getFriends = email => {
+getEmails = email => {
   return db.collection('users').doc(email).get()
 };
 

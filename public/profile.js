@@ -5,16 +5,22 @@ firebase.auth().onAuthStateChanged(user => {
     getId(email).then((doc) => {
         id = doc.data().id
         $("#userId").text("Logged In As " + id)
-    })
+    });
+    getFriends()
+});
+
+function getFriends() {
+    console.log("getFriends")
     getEmails(email).then((doc) => {
-        var friendslist = doc.data().friends
-        for (var i in friendsList) {
+        var friendsList = doc.data().friends
+        $("#friendsList").html('')
+        console.log(friendsList)
+        for (var i =0; i<friendsList.length; i++) {
             var friend = $("<li>" + friendsList[i] + "</li>")
             $("#friendsList").append(friend)
         }
     })
-});
-console.log(email)
+}
 
 
 
@@ -22,8 +28,8 @@ console.log(email)
 $("#submitEmail").click((e) => {
     e.preventDefault();
     var friendEmail = $("#emailInput").val()
-    console.log(friendEmail)
     addEmail(friendEmail, email)
+    $("#friendsList").append(friendEmail)
 })
 
 $("#submitMessage").click((e) => {
@@ -39,6 +45,6 @@ $("#submitId").click((e)=>{
 })
 $("#removeEmail").click((e)=>{
     e.preventDefault();
-    var friendEmail = ("#removeEmailInput").val()
+    var friendEmail = $("#removeEmailInput").val()
     removeEmail(friendEmail, email)
 })
