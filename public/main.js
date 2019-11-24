@@ -11,6 +11,12 @@ $("#login-button").click(e => {
 
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
+    $("#login-button").html("Open");
+    $("#login-button").click(e => {
+      e.preventDefault();
+      window.location.replace("profile.html");
+    });
+
     firebase
       .auth()
       .getRedirectResult()
