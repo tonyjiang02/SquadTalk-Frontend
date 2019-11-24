@@ -1,4 +1,3 @@
-
 $("#login-button").click(e => {
   e.preventDefault();
   loginWithGoogle();
@@ -11,12 +10,6 @@ $("#login-button").click(e => {
 
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
-    $("#login-button").html("Open");
-    $("#login-button").click(e => {
-      e.preventDefault();
-      window.location.replace("profile.html");
-    });
-
     firebase
       .auth()
       .getRedirectResult()
@@ -41,5 +34,11 @@ firebase.auth().onAuthStateChanged(user => {
         var credential = error.credential;
         // ...
       });
+
+    $("#login-button").html("Open");
+    $("#login-button").click(e => {
+      e.preventDefault();
+      window.location.replace("profile.html");
+    });
   }
 });
