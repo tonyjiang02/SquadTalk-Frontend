@@ -36,13 +36,16 @@ $(document).on('click', '.remove', (e) => {
 $("#submitEmail").click((e) => {
     e.preventDefault();
     const friendEmail = $("#emailInput").val();
+    $('#emailInput').val('');
     addEmail(friendEmail, email);
     addFriend(friendEmail);
 });
 
 $("#submitMessage").click((e) => {
     e.preventDefault();
-    var text = $("#messageInput").val();
-    var id = $("#idInput").val();
+    const text = $("#messageInput").val();
+    $('#messageInput').val('');
+    const id = $("#idInput").val();
+    $('#idInput').val('');
     sendMessage(text, id, email)
 });
