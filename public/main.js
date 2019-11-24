@@ -13,6 +13,7 @@ firebase.auth().onAuthStateChanged(user => {
     $("#login-button").click(e => {
       e.preventDefault();
       window.location.replace("profile.html");
+      console.log(user);
     });
   }
 });
@@ -22,17 +23,44 @@ firebase
   .getRedirectResult()
   .then(result => {
     if (result.credential && result !== null) {
+      console.log(result.user);
       // This gives you a Google Access Token. You can use it to access the Google API.
       token = result.credential.accessToken;
       console.log(result.additionalUserInfo.isNewUser);
-      createUser(result.user.email);
-      if (result.additionalUserInfo.isNewUser) {
-        window.location.replace("settings.html");
-      } else {
-        window.location.replace("profile.html");
-      }
-      console.log(result);
-      // ...
+      var user = createUser(result.user.email);
+      console.log(user);
+      user.get().then(function(doc) {
+        if (doc.exists) {
+          console.log(createUser);
+
+          console.log("past createUser");
+
+          if (result.additionalUserInfo.isNewUser) {
+            window.location.replace("settings.html");
+          } else {
+            window.location.replace("profile.html");
+          }
+          console.log(result);
+        } else {
+          db.collection("users")
+            .doc(result.user.email)
+            .set({
+              email: result.user.email,
+              id: "",
+              friends: []
+            })
+            .then(() => {
+              console.log("past createUser");
+
+              if (result.additionalUserInfo.isNewUser) {
+                window.location.replace("settings.html");
+              } else {
+                window.location.replace("profile.html");
+              }
+              console.log(result);
+            });
+        }
+      });
     }
     // The signed-in user info.
     var user = result.user;
@@ -48,3 +76,16 @@ firebase
     var credential = error.credential;
     // ...
   });
+
+var typed = new Typed(".type", {
+  strings: [
+    "squads.",
+    "machine learning.",
+    "decentralization.",
+    "crowdsourcing."
+  ],
+  typeSpeed: 80,
+  backSpeed: 30,
+  backDelay: 1400,
+  loop: true
+});

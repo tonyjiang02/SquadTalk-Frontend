@@ -30,5 +30,6 @@ $("input[type=checkbox]").on("click", sendPreferences);
 $("#submitYourId").click((e) => {
     e.preventDefault();
     var id = $("#yourIdInput").val();
+    $('#yourIdInput').val('');
     setId(id, email)
 });
