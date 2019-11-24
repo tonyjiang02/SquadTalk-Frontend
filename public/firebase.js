@@ -15,7 +15,7 @@ let token = null;
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-const loginWithGoogle = () => {
+loginWithGoogle = () => {
   console.log("test");
   const provider = new firebase.auth.GoogleAuthProvider();
 
@@ -28,7 +28,7 @@ const loginWithGoogle = () => {
   firebase.auth().signInWithRedirect(provider);
 };
 
-const logout = () => {
+logout = () => {
   firebase
     .auth()
     .signOut()
@@ -40,20 +40,20 @@ const logout = () => {
     });
 };
 
-const getToken = () => token;
+getToken = () => token;
 
-const setId = (id, token) => {};
+setId = (id, token) => {};
 
-const getId = (id, token) => {};
+getId = (id, token) => {};
 
-const addFriend = (email, token) => {};
+addFriend = (email, token) => {};
 
-const sendMessage = (id, token) => {};
+sendMessage = (id, token) => {};
 
-const getFriends = token => {};
+getFriends = token => {};
 
-const removeFriend = token => {};
+removeFriend = token => {};
 
-const setPreferences = preferences => {};
+setPreferences = preferences => {};
 
-const getPreferences = () => {};
+getPreferences = () => {};
