@@ -13,7 +13,7 @@ firebase.auth().onAuthStateChanged(user => {
     $("#login-button").click(e => {
       e.preventDefault();
       window.location.replace("profile.html");
-      console.log(user)
+      console.log(user);
     });
   }
 });
@@ -23,29 +23,42 @@ firebase
   .getRedirectResult()
   .then(result => {
     if (result.credential && result !== null) {
-      console.log(result.user)
+      console.log(result.user);
       // This gives you a Google Access Token. You can use it to access the Google API.
       token = result.credential.accessToken;
       console.log(result.additionalUserInfo.isNewUser);
-      var user = createUser(result.user.email)
-      console.log(user)
+      var user = createUser(result.user.email);
+      console.log(user);
       user.get().then(function(doc) {
         if (doc.exists) {
-          console.log(createUser)
+          console.log(createUser);
+
+          console.log("past createUser");
+
+          if (result.additionalUserInfo.isNewUser) {
+            window.location.replace("settings.html");
+          } else {
+            window.location.replace("profile.html");
+          }
+          console.log(result);
         } else {
-          db.collection("users").doc(result.user.email).set({
-            email: result.user.email,
-            id: "",
-            friends: []
-          }).then(()=>{
-            console.log("past createUser");
-            if (result.additionalUserInfo.isNewUser) {
-              window.location.replace("settings.html");
-            } else {
-              window.location.replace("profile.html");
-            }
-            console.log(result);
-          });
+          db.collection("users")
+            .doc(result.user.email)
+            .set({
+              email: result.user.email,
+              id: "",
+              friends: []
+            })
+            .then(() => {
+              console.log("past createUser");
+
+              if (result.additionalUserInfo.isNewUser) {
+                window.location.replace("settings.html");
+              } else {
+                window.location.replace("profile.html");
+              }
+              console.log(result);
+            });
         }
       });
     }
