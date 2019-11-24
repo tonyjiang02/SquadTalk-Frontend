@@ -7,9 +7,14 @@
 */
 
 .navbar {
-    background: #38a779;
+    background: #fff;
 }
 
+.navbar-brand img {
+    height: 7vh;
+    padding: 0;
+    margin: 0;
+}
 
 .mainslide{
     font-family: 'Arvo', serif; 
@@ -19,14 +24,4 @@
 }
 .mainslide h1{
     font-size: 80px;
-}
-
-#signup-button {
-    color: #fff;
-    border-color: #fff;
-}
-
-#signup-button:hover {
-    border-color: #38a779;
-    color: #fff;
 }
