@@ -27,8 +27,8 @@ loginWithGoogle = () => {
 
   firebase.auth().signInWithRedirect(provider);
 };
-db = firebase.firestore()
 
+db = firebase.firestore()
 
 logout = () => {
   firebase
@@ -69,22 +69,38 @@ getId = (email) => {
   return db.collection('users').doc(email).get();
 };
 
-addFriend = (friendEmail, email) => {
+addEmail = (friendEmail, email) => {
   db.collection('users').doc(email).get().then(function (doc) {
     var friends = doc.data().friends;
-    friends.append(friendEmail);
+    console.log(friendEmail)
+    console.log(friends)
+    friends.push(friendEmail);
+    console.log(friends)
+    db.collection('users').doc(email).update({
+
+      friends: friends
+    })
+  })
+};
+
+sendMessage = (text,id,email) => {
+
+};
+
+getFriends = email => {
+  return db.collection('users').doc(email).get()
+};
+
+removeEmail = (friendEmail, email) => { 
+  db.collection('users').doc(email).get().then(function (doc) {
+    var friends = doc.data().friends;
+    friends.splice(friends.indexOf(friendEmail))
     db.collection('users').doc(email).update({
       friends: friends
     })
   })
 };
 
-sendMessage = (id, token) => { };
-
-getFriends = token => { };
-
-removeFriend = token => { };
-
-setPreferences = preferences => { };
+setPreferences = preferences => {};
 
 const getPreferences = () => { };
