@@ -53,10 +53,13 @@
       Submit
     </button>
   </div>
-  <!-- <script>
-          if (!getToken()) {
-            window.location.replace("/index.html");
-          }
-        </script> -->
+
+  <script>
+    firebase.auth().onAuthStateChanged(user => {
+      if (!user) {
+        window.location.replace("/index.html");
+      }
+    });
+  </script>
   <script src="register.js"></script>
 </body>
