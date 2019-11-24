@@ -13,6 +13,7 @@ firebase.auth().onAuthStateChanged(user => {
     $("#login-button").click(e => {
       e.preventDefault();
       window.location.replace("profile.html");
+      console.log(user)
     });
   }
 });
@@ -25,6 +26,7 @@ firebase
       // This gives you a Google Access Token. You can use it to access the Google API.
       token = result.credential.accessToken;
       console.log(result.additionalUserInfo.isNewUser);
+      console.log(result.user.email)
       createUser(result.user.email);
       if (result.additionalUserInfo.isNewUser) {
         window.location.replace("settings.html");

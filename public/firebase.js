@@ -45,8 +45,9 @@ logout = () => {
 getToken = () => token;
 
 createUser = email => {
+  console.log("creating user")
   var user = db.collection("users").doc(email);
-  user.get().then(function (doc) {
+  return user.get().then(function (doc) {
     if (doc.exists) {
     } else {
       user.set({
@@ -113,6 +114,6 @@ removeEmail = (friendEmail, email) => {
     });
 };
 
-setPreferences = preferences => { };
+setPreferences = preferences => {};
 
-const getPreferences = () => { };
+const getPreferences = () => {};
