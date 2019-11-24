@@ -26,13 +26,13 @@
     <nav class="navbar">
       <a class="navbar-brand" href="#">SquadTalk</a>
       <form class="form-inline my-2 my-lg-0">
-          <a id = "userId"></a>
+        <a id="userId"></a>
       </form>
     </nav>
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-4">
         <h2>Add new friends</h2>
         <div class="form-group">
           <label for="emailInput">Add friend for verification</label>
@@ -47,10 +47,25 @@
           Submit
         </button>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4" style = "text-align:center">
         <h2>Your current friends list</h2>
         <ul id="friendsList"></ul>
       </div>
+      <div class="col-md-4" style = "text-align:right">
+          <h2>Remove friend</h2>
+          <div class="form-group">
+            <label for="removeEmail">Remove friend from squad</label>
+            <input
+              type="email"
+              class="form-control"
+              id="removeEmail"
+              placeholder="Enter email to be removed here"
+            />
+          </div>
+          <button id="removeEmail" class="btn btn-danger">
+            Remove
+          </button>
+        </div>
     </div>
     <div style="padding-top:5%" id="sendMessage">
       <h2>Send a message to someone</h2>
@@ -78,5 +93,5 @@
       window.location.replace("/index.html");
     }
   </script> -->
-  <script src="register.js"></script>
+  <script src="profile.js"></script>
 </body>

@@ -2,6 +2,6 @@ var token = getToken()
 $("#submitId").click(()=>{
     preventDefault();
     var id = ("#idInput").val()
-    setId(id, token)
+    setId(id)
     window.location.href = "/profile.html"
 })
