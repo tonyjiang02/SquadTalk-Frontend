@@ -2,7 +2,7 @@ $("#login-button").click(e => {
   e.preventDefault();
   loginWithGoogle();
 });
-$("#getStarted").click(e => {
+$("#get-started").click(e => {
   e.preventDefault();
   loginWithGoogle();
 });
