@@ -1,0 +1,9 @@
+.mainslide{
+    font-family: 'Arvo', serif; 
+    background: cover; 
+    height: 100vh; 
+    color:rgb(255, 255, 255)
+}
+.mainslide h1{
+    font-size: 80px;
+}
