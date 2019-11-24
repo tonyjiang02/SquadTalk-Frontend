@@ -37,10 +37,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="profile.html">Profile</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="settings.html">Settings</a>
         </li>
       </ul>
@@ -48,14 +48,14 @@
     <div class="navbar-collapse collapse">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="profile.html">User</a>
+          <a onclick="logout()" id="logout" class="nav-link text-danger" style="cursor: pointer;">Log out</a>
         </li>
       </ul>
     </div>
   </nav>
   <div class="container">
     <h2>Block These Options</h2>
-    <form onsubmit = "sendPreferences()">
+    <form onsubmit="sendPreferences()">
       <div class="form-group">
         <label for="toxicity">Select Toxicity</label>
         <select class="form-control" id="toxicity">
@@ -132,5 +132,20 @@
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
-  <script src = "settings.js"></script>
+
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+
+  <script src="firebase.js"></script>
+
+  <script src="settings.js"></script>
 </body>

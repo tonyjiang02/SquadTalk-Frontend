@@ -28,14 +28,28 @@ loginWithGoogle = () => {
   firebase.auth().signInWithRedirect(provider);
 };
 db = firebase.firestore()
-const getToken = () => token;
 
-const createUser = (email) => {
+
+logout = () => {
+  firebase
+    .auth()
+    .signOut()
+    .then(function() {
+      window.location.replace("index.html");
+    })
+    .catch(function(error) {
+      // An error happened
+    });
+};
+
+getToken = () => token;
+
+createUser = (email) => {
   var user = db.collection('users').doc(email);
-  user.get().then(function(doc){
-    if(doc.exists){
+  user.get().then(function (doc) {
+    if (doc.exists) {
 
-    }else {
+    } else {
       user.set({
         email: email,
         id: '',
@@ -45,18 +59,18 @@ const createUser = (email) => {
   })
 }
 
-const setId = (id, email) => {
+setId = (id, email) => {
   db.collection('users').doc(email).update({
     id: id
   })
 };
 
-const getId = (email) => {
+getId = (email) => {
   return db.collection('users').doc(email).get();
 };
 
-const addFriend = (friendEmail, email) => {
-  db.collection('users').doc(email).get().then(function(doc){
+addFriend = (friendEmail, email) => {
+  db.collection('users').doc(email).get().then(function (doc) {
     var friends = doc.data().friends;
     friends.append(friendEmail);
     db.collection('users').doc(email).update({
@@ -65,12 +79,12 @@ const addFriend = (friendEmail, email) => {
   })
 };
 
-const sendMessage = (id, token) => { };
+sendMessage = (id, token) => { };
 
-const getFriends = token => { };
+getFriends = token => { };
 
-const removeFriend = token => { };
+removeFriend = token => { };
 
-const setPreferences = preferences => { };
+setPreferences = preferences => { };
 
 const getPreferences = () => { };
