@@ -1,9 +1,32 @@
+/*
+#38a779
+#80b762
+#ccc84a
+
+#170038
+*/
+
+.navbar {
+    background: #38a779;
+}
+
+
 .mainslide{
     font-family: 'Arvo', serif; 
     background: cover; 
     height: 100vh; 
-    color:rgb(255, 255, 255)
+    color: #fff;
 }
 .mainslide h1{
     font-size: 80px;
+}
+
+#signup-button {
+    color: #fff;
+    border-color: #fff;
+}
+
+#signup-button:hover {
+    border-color: #38a779;
+    color: #fff;
 }
