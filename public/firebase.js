@@ -34,10 +34,10 @@ logout = () => {
   firebase
     .auth()
     .signOut()
-    .then(function () {
+    .then(function() {
       window.location.replace("index.html");
     })
-    .catch(function (error) {
+    .catch(function(error) {
       // An error happened
     });
 };
@@ -47,16 +47,7 @@ getToken = () => token;
 createUser = email => {
   console.log("creating user")
   var user = db.collection("users").doc(email);
-  return user.get().then(function (doc) {
-    if (doc.exists) {
-    } else {
-      user.set({
-        email: email,
-        id: "",
-        friends: []
-      });
-    }
-  });
+  return user;
 };
 
 setId = (id, email) => {
@@ -75,35 +66,43 @@ getId = email => {
 };
 
 addEmail = (friendEmail, email) => {
-  db.collection('users').doc(email).get().then(function (doc) {
-    var friends = doc.data().friends;
-    friends.push(friendEmail);
-    db.collection('users').doc(email).update({
-      friends: friends
-    })
-  })
+  db.collection("users")
+    .doc(email)
+    .get()
+    .then(function(doc) {
+      var friends = doc.data().friends;
+      friends.push(friendEmail);
+      db.collection("users")
+        .doc(email)
+        .update({
+          friends: friends
+        });
+    });
 };
 
 sendMessage = (text, id, email) => {
   var data = new FormData();
-  data.append('msg', text)
-  data.append('to_id', id)
-  data.append('from_email', email)
+  data.append("msg", text);
+  data.append("to_id", id);
+  data.append("from_email", email);
   fetch("http://192.168.137.28:8080/message_send", {
-    method: 'post',
+    method: "post",
     body: data
-  })
+  });
 };
 
 getEmails = email => {
-  return db.collection('users').doc(email).get()
+  return db
+    .collection("users")
+    .doc(email)
+    .get();
 };
 
 removeEmail = (friendEmail, email) => {
   db.collection("users")
     .doc(email)
     .get()
-    .then(function (doc) {
+    .then(function(doc) {
       var friends = doc.data().friends;
       friends.splice(friends.indexOf(friendEmail));
       db.collection("users")
