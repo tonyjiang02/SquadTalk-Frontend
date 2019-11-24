@@ -21,9 +21,10 @@ firebase.auth().onAuthStateChanged(user => {
       .auth()
       .getRedirectResult()
       .then(result => {
-        if (result.credential) {
+        if (result.credential && result!==null) {
           // This gives you a Google Access Token. You can use it to access the Google API.
           token = result.credential.accessToken;
+          createUser(result.user.email)
           console.log(result);
           // ...
         }

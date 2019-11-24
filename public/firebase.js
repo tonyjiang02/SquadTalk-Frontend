@@ -27,21 +27,50 @@ loginWithGoogle = () => {
 
   firebase.auth().signInWithRedirect(provider);
 };
-
+db = firebase.firestore()
 const getToken = () => token;
 
-const setId = (id, token) => {};
+const createUser = (email) => {
+  var user = db.collection('users').doc(email);
+  user.get().then(function(doc){
+    if(doc.exists){
 
-const getId = (id, token) => {};
+    }else {
+      user.set({
+        email: email,
+        id: '',
+        friends: []
+      })
+    }
+  })
+}
 
-const addFriend = (email, token) => {};
+const setId = (id, email) => {
+  db.collection('users').doc(email).update({
+    id: id
+  })
+};
 
-const sendMessage = (id, token) => {};
+const getId = (email) => {
+  return db.collection('users').doc(email).get();
+};
 
-const getFriends = token => {};
+const addFriend = (friendEmail, email) => {
+  db.collection('users').doc(email).get().then(function(doc){
+    var friends = doc.data().friends;
+    friends.append(friendEmail);
+    db.collection('users').doc(email).update({
+      friends: friends
+    })
+  })
+};
 
-const removeFriend = token => {};
+const sendMessage = (id, token) => { };
 
-const setPreferences = preferences => {};
+const getFriends = token => { };
 
-const getPreferences = () => {};
+const removeFriend = token => { };
+
+const setPreferences = preferences => { };
+
+const getPreferences = () => { };
