@@ -1,17 +1,19 @@
 let email = null;
 firebase.auth().onAuthStateChanged(user => {
-  email = user.email;
-  getId(email).then(doc => {
-    id = doc.data().id;
-    $("#userId").text("Logged In As " + id);
-  });
-  getEmails(email).then(doc => {
-    var friendslist = doc.data().friends;
-    for (var i in friendsList) {
-      var friend = $("<li>" + friendsList[i] + "</li>");
-      $("#friendsList").append(friend);
-    }
-  });
+  if (user) {
+    email = user.email;
+    getId(email).then(doc => {
+      id = doc.data().id;
+      $("#userId").text("Logged In As " + id);
+    });
+    getEmails(email).then(doc => {
+      var friendslist = doc.data().friends;
+      for (var i in friendsList) {
+        var friend = $("<li>" + friendsList[i] + "</li>");
+        $("#friendsList").append(friend);
+      }
+    });
+  }
 });
 console.log(email);
 
