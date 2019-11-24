@@ -42,4 +42,6 @@ const getFriends = token => {};
 
 const removeFriend = token => {};
 
-const setPreference = preferences => {};
+const setPreferences = preferences => {};
+
+const getPreferences = () => {};
