@@ -1,151 +1,183 @@
 <head>
-  <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-    crossorigin="anonymous"
-  />
-  <script
-    src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"
-  ></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"
-  ></script>
-  <script
-    src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"
-  ></script>
+    <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+    />
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"
+    ></script>
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"
+    ></script>
+    <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"
+    ></script>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="#">
+        <img src="images/squadtalklogo.png" width="30" height="30" alt="">
+    </a>
     <a class="navbar-brand" href="#">SquadTalk</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="profile.html">Profile</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="settings.html">Settings</a>
-        </li>
-      </ul>
+    <div class="collapse navbar-collapse navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="profile.html">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="settings.html">Settings</a>
+            </li>
+        </ul>
     </div>
-    <div class="navbar-collapse collapse">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a onclick="logout()" id="logout" class="nav-link text-danger" style="cursor: pointer;">Log out</a>
-        </li>
-      </ul>
+    <div class="navbar-collapse collapse navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a onclick="logout()" id="logout" class="nav-link text-danger" style="cursor: pointer;">Log out</a>
+            </li>
+        </ul>
     </div>
-  </nav>
-  <div class="container">
-    <h2>Block These Options</h2>
-    <form onsubmit="sendPreferences()">
-      <div class="form-group">
-        <label for="toxicity">Select Toxicity</label>
-        <select class="form-control" id="toxicity">
-          <option>Moderate Toxicity</option>
-          <option>Severe Toxicity</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          value="identityattack"
-          id="identityattack"
-        />
-        <label class="form-check-label" for="identityattack">
-          Identity Attack
-        </label>
-      </div>
-      <div class="form-group">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          value="insult"
-          id="insult"
-        />
-        <label class="form-check-label" for="insult">
-          Insult
-        </label>
-      </div>
-      <div class="form-group">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          value="profanity"
-          id="profanity"
-        />
-        <label class="form-check-label" for="profanity">
-          Profanity
-        </label>
-      </div>
-      <div class="form-group">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          value="threat"
-          id="threat"
-        />
-        <label class="form-check-label" for="threat">
-          Threat
-        </label>
-      </div>
-      <div class="form-group">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          value="sexuallyexplicit"
-          id="sexuallyexplicit"
-        />
-        <label class="form-check-label" for="sexuallyexplicit">
-          Sexually Explicit
-        </label>
-      </div>
-      <div class="form-group">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          value="flirtation"
-          id="flirtation"
-        />
-        <label class="form-check-label" for="flirtation">
-          Flirtation
-        </label>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-  </div>
-
-  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
-
-  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
-
-  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
-
-  <!-- Add Firebase products that you want to use -->
-  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
-
-  <script src="firebase.js"></script>
-
-  <script src="settings.js"></script>
+</nav>
+<div class="d-flex" style="background: #F8F8E9;">
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <div class="card border-0 mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Block these Options</h5>
+                        <form onsubmit="sendPreferences()">
+                            <div class="form-group">
+                                <label for="toxicity">Select Toxicity</label>
+                                <select class="form-control w-50" id="toxicity">
+                                    <option>Moderate Toxicity</option>
+                                    <option>Severe Toxicity</option>
+                                </select>
+                            </div>
+                            <div class="form-group form-check">
+                                <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        value="identityattack"
+                                        id="identityattack"
+                                        checked
+                                />
+                                <label class="form-check-label" for="identityattack">
+                                    Identity Attack
+                                </label>
+                            </div>
+                            <div class="form-group form-check">
+                                <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        value="insult"
+                                        id="insult"
+                                        checked
+                                />
+                                <label class="form-check-label" for="insult">
+                                    Insult
+                                </label>
+                            </div>
+                            <div class="form-group form-check">
+                                <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        value="profanity"
+                                        id="profanity"
+                                        checked
+                                />
+                                <label class="form-check-label" for="profanity">
+                                    Profanity
+                                </label>
+                            </div>
+                            <div class="form-group form-check">
+                                <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        value="threat"
+                                        id="threat"
+                                        checked
+                                />
+                                <label class="form-check-label" for="threat">
+                                    Threat
+                                </label>
+                            </div>
+                            <div class="form-group form-check">
+                                <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        value="sexuallyexplicit"
+                                        id="sexuallyexplicit"
+                                        checked
+                                />
+                                <label class="form-check-label" for="sexuallyexplicit">
+                                    Sexually Explicit
+                                </label>
+                            </div>
+                            <div class="form-group form-check">
+                                <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        value="flirtation"
+                                        id="flirtation"
+                                        checked
+                                />
+                                <label class="form-check-label" for="flirtation">
+                                    Flirtation
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card border-0 mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Set Your ID</h5>
+                        <div class="form-group">
+                            <label for="yourIdInput">Set your own ID here</label>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    id="yourIdInput"
+                                    placeholder="Enter id here"
+                            />
+                        </div>
+                        <button id="submitYourId" type="submit" class="btn btn-primary">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="page-footer p-4"></footer>
+    </div>
+</div>
 </body>
+
+<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+
+<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
+
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+
+<script src="firebase.js"></script>
+
+<script src="settings.js"></script>

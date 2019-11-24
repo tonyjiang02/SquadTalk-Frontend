@@ -1,51 +1,48 @@
 let email = null;
 firebase.auth().onAuthStateChanged(user => {
-    email = user.email
+    email = user.email;
     getId(email).then((doc) => {
-        id = doc.data().id
+        id = doc.data().id;
         $("#userId").text("Logged In As " + id)
     });
     getFriends()
 });
 
 function getFriends() {
-    console.log("getFriends")
+    console.log("getFriends");
     getEmails(email).then((doc) => {
-        var friendsList = doc.data().friends
-        $("#friendsList").html('')
-        console.log(friendsList)
-        for (var i =0; i<friendsList.length; i++) {
-            var friend = $("<li>" + friendsList[i] + "</li>")
-            $("#friendsList").append(friend)
+        var friendsList = doc.data().friends;
+        // $("#friendsList").html('');
+        for (var i = 0; i < friendsList.length; i++) {
+            addFriend(friendsList[i]);
         }
     })
 }
 
+function addFriend(friendEmail) {
+    let friend = $($('#friend-template').html());
+    friend.find('.email').text(friendEmail);
+    friend.find('.btn').attr('data-email', friendEmail);
+    $('#friendsList').append(friend);
+}
 
+$(document).on('click', '.remove', (e) => {
+    e.preventDefault();
+    removeEmail(e.target.getAttribute('data-email'), email);
+    $(e.target).parents('.friend').remove();
+});
 
 
 $("#submitEmail").click((e) => {
     e.preventDefault();
-    var friendEmail = $("#emailInput").val()
-    addEmail(friendEmail, email)
-    var friend = $("<li>" + friendEmail + "</li>")
-    $("#friendsList").append(friend)
-})
+    const friendEmail = $("#emailInput").val();
+    addEmail(friendEmail, email);
+    addFriend(friendEmail);
+});
 
 $("#submitMessage").click((e) => {
     e.preventDefault();
-    var text = $("#messageInput").val()
-    var id = $("#idInput").val()
+    var text = $("#messageInput").val();
+    var id = $("#idInput").val();
     sendMessage(text, id, email)
-})
-$("#removeEmail").click((e)=>{
-    e.preventDefault();
-    var friendEmail = $("#removeEmailInput").val()
-    removeEmail(friendEmail, email)
-})
-$("#submitYourId").click((e)=> {
-    e.preventDefault()
-    var id = $("#yourIdInput").val()
-    console.log(id)
-    setId(id, email)
-})
+});
