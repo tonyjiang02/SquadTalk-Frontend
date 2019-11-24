@@ -85,7 +85,7 @@ sendMessage = (text, id, email) => {
   data.append("msg", text);
   data.append("to_id", id);
   data.append("from_email", email);
-  fetch("http://192.168.137.28:8080/message_send", {
+  fetch("https://summer-lexicon-260008.appspot.com/message_send", {
     method: "post",
     body: data
   });
