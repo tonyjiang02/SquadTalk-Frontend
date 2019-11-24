@@ -46,10 +46,3 @@ $("#submitMessage").click((e) => {
     var id = $("#idInput").val();
     sendMessage(text, id, email)
 });
-
-$("#submitYourId").click((e) => {
-    e.preventDefault();
-    var id = $("#yourIdInput").val();
-    console.log(id);
-    setId(id, email)
-});
