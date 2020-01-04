@@ -43,7 +43,7 @@ firebase
           console.log(result);
         } else {
           db.collection("users")
-            .doc(result.user.email)
+            .doc(result.user.uid)
             .set({
               email: result.user.email,
               id: "",
