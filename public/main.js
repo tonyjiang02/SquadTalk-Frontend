@@ -1,4 +1,4 @@
-$("#login-button").click(e => {
+$("#signup-button").click(e => {
   e.preventDefault();
   loginWithGoogle();
 });
